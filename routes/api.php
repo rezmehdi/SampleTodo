@@ -23,3 +23,4 @@ Route::post('/post/create', [PostController::class, 'store']);
 Route::get('/getpost',[PostController::class,'index']);
 route::post('/post/update',[PostController::class,'update']);
 route::get('/post/destroy/{id}',[PostController::class,'destroy']);
+route::get('/post/{id}',[PostController::class,'show']);

@@ -18,7 +18,7 @@ class PostController extends Controller
         }catch (\Error $exception){
             return "false";
         }
- Log::info($request);
+        Log::info($request);
     }
 
     public function index()
@@ -26,18 +26,27 @@ class PostController extends Controller
         return Post::all();
     }
 
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        return $post;
+    }
+
+
+
+
     public function update(Request $request)
     {
-        $post= Post::find($request->id);
+        $post = Post::find($request->id);
         Log::info($request);
         Log::info($request->id);
         Log::info($post);
         $post->update([
                 'title' => $request->title,
-                'body' =>$request->body,
+                'body' => $request->body,
             ]
         );
-}
+    }
 
     public function destroy($id){
         Post::destroy($id);
