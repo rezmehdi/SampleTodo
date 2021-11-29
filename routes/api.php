@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TodoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,12 @@ Route::get('/getpost',[PostController::class,'index']);
 route::post('/post/update',[PostController::class,'update']);
 route::get('/post/destroy/{id}',[PostController::class,'destroy']);
 route::get('/post/{id}',[PostController::class,'show']);
+
+
+Route::post('/todo/create', [TodoController::class, 'store']);
+Route::get('/gettodo',[TodoController::class,'index']);
+route::get('/todo/destroy/{id}',[TodoController::class,'destroy']);
+route::get('/todo/destroyall',[TodoController::class,'destroys']);
+route::post('/todo/done',[TodoController::class,'done']);
+route::post('/todo/update',[TodoController::class,'update']);
+

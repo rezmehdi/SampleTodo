@@ -38,9 +38,6 @@ class PostController extends Controller
     public function update(Request $request)
     {
         $post = Post::find($request->id);
-        Log::info($request);
-        Log::info($request->id);
-        Log::info($post);
         $post->update([
                 'title' => $request->title,
                 'body' => $request->body,
